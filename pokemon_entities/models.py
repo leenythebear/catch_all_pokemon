@@ -9,3 +9,8 @@ class Pokemon(models.Model):
         if self:
             return self.title
         return f'{self.title}'
+
+
+class PokemonEntity(models.Model):
+    lat = models.FloatField()
+    lon = models.FloatField()
