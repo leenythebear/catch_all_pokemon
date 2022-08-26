@@ -90,7 +90,30 @@ def show_pokemon(request, pokemon_id):
             pokemon_entity.lon,
             img_url,
         )
+    if searched_pokemon.evolve_from:
+        previous_evolution = {
+            "title_ru": searched_pokemon.evolve_from.title,
+            "pokemon_id": searched_pokemon.evolve_from.id,
+            "img_url": request.build_absolute_uri(
+                searched_pokemon.evolve_from.photo.url
+            ),
+        }
+        pokemon["previous_evolution"] = previous_evolution
+    next_evolution = searched_pokemon.related_pokemons.all()
+    if next_evolution:
+        next_evolution = {
+            "title_ru": next_evolution[0].title,
+            "pokemon_id": next_evolution[0].id,
+            "img_url": next_evolution[0].photo.url,
+        }
+        pokemon["next_evolution"] = next_evolution
 
-    return render(request, 'pokemon.html', context={
-        'map': folium_map._repr_html_(), 'pokemon': pokemon
-    })
+    return render(
+        request,
+        "pokemon.html",
+        context={
+            "img_url": img_url,
+            "map": folium_map._repr_html_(),
+            "pokemon": pokemon,
+        },
+    )
