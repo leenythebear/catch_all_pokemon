@@ -24,6 +24,15 @@ class Pokemon(models.Model):
         verbose_name="Изображение",
     )
 
+    evolve_from = models.ForeignKey(
+        "Pokemon",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="related_pokemons",
+        verbose_name="Предыдущая эволюция",
+    )
+
     def __str__(self):
         if self:
             return self.title
