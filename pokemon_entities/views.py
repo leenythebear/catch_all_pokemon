@@ -79,7 +79,7 @@ def show_pokemon(request, pokemon_id):
         "title_ru": searched_pokemon.title,
         "title_en": searched_pokemon.title_en,
         "title_jp": searched_pokemon.title_jp,
-        "photo": img_url,
+        "img_url": img_url,
         "description": searched_pokemon.description,
     }
     pokemon_entities = PokemonEntity.objects.filter(id=searched_pokemon.id)
