@@ -2,20 +2,32 @@ from django.db import models  # noqa F401
 
 
 class Pokemon(models.Model):
-    title = models.TextField()
-    photo = models.ImageField(blank=True, null=True)
-    appeared_at = models.DateTimeField()
-    disappeared_at = models.DateTimeField()
-    level = models.IntegerField(default=0)
-    health = models.IntegerField(default=0)
-    strength = models.IntegerField(default=0)
-    defence = models.IntegerField(default=0)
-    stamina = models.IntegerField(default=0)
+    title = models.CharField(
+        max_length=200,
+        verbose_name="Имя на русском",
+    )
+    title_en = models.CharField(
+        max_length=200,
+        verbose_name="Имя на английском",
+    )
+    title_jp = models.CharField(
+        max_length=200,
+        verbose_name="Имя на японском",
+    )
+    description = models.TextField(
+        blank=True,
+        verbose_name="Описание",
+    )
+    photo = models.ImageField(
+        blank=True,
+        null=True,
+        verbose_name="Изображение",
+    )
 
     def __str__(self):
         if self:
             return self.title
-        return f'{self.title}'
+        return f"{self.title}"
 
 
 class PokemonEntity(models.Model):
