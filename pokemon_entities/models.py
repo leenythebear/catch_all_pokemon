@@ -10,17 +10,14 @@ class Pokemon(models.Model):
         max_length=200,
         verbose_name="Имя на английском",
         blank=True,
-        null=True,
     )
     title_jp = models.CharField(
         max_length=200,
         verbose_name="Имя на японском",
         blank=True,
-        null=True,
     )
     description = models.TextField(
         blank=True,
-        null=True,
         verbose_name="Описание",
     )
     photo = models.ImageField(
