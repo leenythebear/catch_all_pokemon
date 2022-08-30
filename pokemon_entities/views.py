@@ -77,7 +77,7 @@ def show_pokemon(request, pokemon_id):
         "img_url": img_url,
         "description": pokemon.description,
     }
-    pokemon_entities = pokemon.pokemon_entities.all()
+    pokemon_entities = pokemon.entities.all()
     for pokemon_entity in pokemon_entities:
         add_pokemon(
             folium_map,
