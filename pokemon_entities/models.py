@@ -39,9 +39,7 @@ class Pokemon(models.Model):
     )
 
     def __str__(self):
-        if self:
-            return self.title
-        return f"{self.title}"
+        return self.title
 
 
 class PokemonEntity(models.Model):
@@ -85,6 +83,5 @@ class PokemonEntity(models.Model):
     )
 
     def __str__(self):
-        if self:
-            return self.pokemon.title
-        return f"{self.pokemon.title}"
+        return self.pokemon.title
+
