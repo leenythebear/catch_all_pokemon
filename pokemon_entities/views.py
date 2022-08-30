@@ -97,9 +97,9 @@ def show_pokemon(request, pokemon_id):
     next_evolution = pokemon.next_evolutions.all()
     if next_evolution:
         next_evolution = {
-            "title_ru": next_evolution[0].title,
-            "pokemon_id": next_evolution[0].id,
-            "img_url": next_evolution[0].photo.url,
+            "title_ru": next_evolution.first().title,
+            "pokemon_id": next_evolution.first().id,
+            "img_url": next_evolution.first().photo.url,
         }
         serialized_pokemon["next_evolution"] = next_evolution
 
