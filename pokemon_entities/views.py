@@ -94,7 +94,7 @@ def show_pokemon(request, pokemon_id):
             ),
         }
         serialized_pokemon["previous_evolution"] = previous_evolution
-    next_evolution = pokemon.next_evolution.all()
+    next_evolution = pokemon.next_evolutions.all()
     if next_evolution:
         next_evolution = {
             "title_ru": next_evolution[0].title,
