@@ -9,10 +9,12 @@ class Pokemon(models.Model):
     title_en = models.CharField(
         max_length=200,
         verbose_name="Имя на английском",
+        blank=True,
     )
     title_jp = models.CharField(
         max_length=200,
         verbose_name="Имя на японском",
+        blank=True,
     )
     description = models.TextField(
         blank=True,
