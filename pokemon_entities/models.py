@@ -10,14 +10,17 @@ class Pokemon(models.Model):
         max_length=200,
         verbose_name="Имя на английском",
         blank=True,
+        null=True,
     )
     title_jp = models.CharField(
         max_length=200,
         verbose_name="Имя на японском",
         blank=True,
+        null=True,
     )
     description = models.TextField(
         blank=True,
+        null=True,
         verbose_name="Описание",
     )
     photo = models.ImageField(
@@ -57,22 +60,27 @@ class PokemonEntity(models.Model):
     level = models.IntegerField(
         verbose_name="Уровень",
         blank=True,
+        null=True,
     )
     health = models.IntegerField(
         verbose_name="Здоровье",
         blank=True,
+        null=True,
     )
     strength = models.IntegerField(
         verbose_name="Сила",
         blank=True,
+        null=True,
     )
     defence = models.IntegerField(
         verbose_name="Защита",
         blank=True,
+        null=True,
     )
     stamina = models.IntegerField(
         verbose_name="Выносливость",
         blank=True,
+        null=True,
     )
 
     def __str__(self):
