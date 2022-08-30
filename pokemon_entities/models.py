@@ -34,7 +34,7 @@ class Pokemon(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="related_pokemons",
+        related_name="next_evolution",
         verbose_name="Предыдущая эволюция",
     )
 
